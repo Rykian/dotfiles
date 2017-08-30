@@ -13,7 +13,7 @@ alias dc=docker-compose
 function dcl() {
   if [ -n "$1" ]
   then
-    docker-compose logs --tail 0 -f "$1"
+    docker-compose logs --tail 0 -f "$@"
   else
     docker-compose logs --tail 0 -f
   fi
