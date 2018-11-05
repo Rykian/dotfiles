@@ -19,3 +19,8 @@ function dcl() {
   fi
 }
 alias dcl=dcl
+
+if [[ $OSTYPE == *darwin* ]]
+then
+  alias typora="open -a typora"
+fi
