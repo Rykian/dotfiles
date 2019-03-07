@@ -8,6 +8,8 @@ alias lu="ll -s accessed"
 alias lx="ll -s Extension"
 alias lk="ll -s size -r"
 
+alias fuck='sudo $(history -p \!\!)'
+
 alias dc=docker-compose
 
 function dcl() {
