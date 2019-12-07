@@ -17,6 +17,6 @@ set required fzy docker rbenv nvm exa
 for i in $required
   type -q $i
   if test $status -ne 0
-    echo Executable '$i' is missing
+    echo Executable \'$i\' is missing
   end
 end
