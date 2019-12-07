@@ -8,21 +8,19 @@ alias lu="ll -s accessed"
 alias lx="ll -s Extension"
 alias lk="ll -s size -r"
 
-alias fuck='sudo $(fc -ln -1)'
-
 alias dc=docker-compose
 
-function dcl() {
-  if [ -n "$1" ]
-  then
-    docker-compose logs --tail 0 -f "$@"
+function dcl
+  if test -n $argv
+    docker-compose logs --tail 0 -f "$argv"
   else
     docker-compose logs --tail 0 -f
-  fi
-}
+  end
+end
+
 alias dcl=dcl
 
-if [[ $OSTYPE == *darwin* ]]
-then
-  alias typora="open -a typora"
-fi
+#if [[ $OSTYPE == *darwin* ]]
+#then
+#  alias typora="open -a typora"
+#fi
