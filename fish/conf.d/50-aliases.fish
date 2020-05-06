@@ -10,17 +10,10 @@ alias lk="ll -s size -r"
 
 alias dc=docker-compose
 
-function dcl
-  if test -n $argv
-    docker-compose logs --tail 0 -f "$argv"
-  else
-    docker-compose logs --tail 0 -f
-  end
-end
-
-alias dcl=dcl
-
 #if [[ $OSTYPE == *darwin* ]]
 #then
 #  alias typora="open -a typora"
 #fi
+
+abbr --global dcl 'docker-compose logs --tail 0 -f'
+abbr --global k 'kubectl'
