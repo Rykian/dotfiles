@@ -1,22 +1,23 @@
 #!/usr/bin/env fish
 
-if not test -d ~/.config/fish/conf.d
+if not test -L ~/.config/fish/conf.d
   ln -s (pwd)/fish/conf.d ~/.config/fish/conf.d
 end
 
-if not test -d ~/.config/omf
-  ln -s (pwd)/omf ~/.config/omf
+if not test -L ~/.config/fish/fishfile
+  ln -s (pwd)/fish/fishfile ~/.config/fish/fishfile
 end
 
-if test -z $OMF_CONFIG
-  curl -L https://get.oh-my.fish | fish
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
 end
-omf install
 
-set required fzy docker rbenv nvm exa
+set required docker rbenv nvm exa
 for i in $required
   type -q $i
   if test $status -ne 0
-    echo Executable \'$i\' is missing
+    echo "Executable '$i' is missing"
   end
 end
