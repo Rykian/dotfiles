@@ -1,17 +1,5 @@
 set NVMRC_USED 0
 
-function __check_nvm --on-variable PWD --description 'Check if there is a .nvm file'
-  if [ "$NVM_DIR" != "" ]
-    __switch_nvm
-  else
-    function __enable_nvm_afer_loaded --on-variable nvm_prefix
-      if [ "$NVM_DIR" != "" ]
-        __switch_nvm
-      end
-    end
-  end
-end
-
 function __switch_nvm
   set splitted_path (string split / $PWD)
   set nvm_present 0
@@ -30,4 +18,11 @@ function __switch_nvm
     set NVMRC_USED 0
     nvm use default > /dev/null
   end
+end
+
+# Check if .nvm is present on load
+__switch_nvm
+
+function __check_nvm --on-variable PWD --description 'Check if there is a .nvm file on directory change'
+  __switch_nvm
 end
