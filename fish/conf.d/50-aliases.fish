@@ -15,8 +15,8 @@ alias lk="ll -s size -r"
 #  alias typora="open -a typora"
 #fi
 
-abbr --global dc 'docker-compose'
-abbr --global dcl 'docker-compose logs --tail 0 -f'
+abbr --global dc 'docker compose'
+abbr --global dcl 'docker compose logs --tail 0 -f'
 abbr --global k kubectl
 abbr --global rn 'npx react-native'
 abbr --global rn-reset-deps 'rm -rf node_modules && rm -rf ios/Pods && yarn install && cd ios && pod install && cd ..'
