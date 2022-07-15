@@ -1,11 +1,11 @@
 #!/usr/bin/env fish
 
 if not test -L ~/.config/fish/conf.d
-  ln -s (pwd)/fish/conf.d ~/.config/fish/conf.d
+    ln -s (pwd)/fish/conf.d ~/.config/fish/conf.d
 end
 
 if not test -L ~/.config/fish/fishfile
-  ln -s (pwd)/fish/fishfile ~/.config/fish/fishfile
+    ln -s (pwd)/fish/fishfile ~/.config/fish/fishfile
 end
 
 if not functions -q fisher
@@ -14,10 +14,10 @@ if not functions -q fisher
     fish -c fisher
 end
 
-set required docker rbenv nvm exa
+set required docker exa asdf
 for i in $required
-  type -q $i
-  if test $status -ne 0
-    echo "Executable '$i' is missing"
-  end
+    type -q $i
+    if test $status -ne 0
+        echo "Executable '$i' is missing"
+    end
 end

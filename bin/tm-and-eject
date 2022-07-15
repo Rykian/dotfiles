@@ -1,0 +1,20 @@
+#!/bin/bash
+# Put something like these lines in ~/Library/LaunchAgents/tm-and-eject.plist:
+#
+# <?xml version="1.0" encoding="UTF-8"?>
+# <!DOCTYPE plist PUBLIC -//Apple Computer//DTD PLIST 1.0//EN http://www.apple.com/DTDs/PropertyList-1.0.dtd>
+# <plist version="1.0">
+# <dict>
+#     <key>Label</key>
+#     <string>timemachine_eject</string>
+#     <key>Program</key>
+#     <string>/Users/username/git/dotfiles/bin/tm-and-eject</string> <!-- Replace "username" with your username. "~/bin/timemachine" doesn't work -->
+#     <key>StartInterval</key>
+#     <integer>120</integer> <!-- run every two minutes for testing. -->
+#         <!-- Change this to a higher number like 43200 (run every 12 hours) once you've confirmed it works. -->
+# </dict>
+# </plist>
+#
+# And load it with `launchctl load ~/Library/LaunchAgents/tm-and-eject.plist`
+tmutil startbackup -b
+diskutil eject "`tmutil machinedirectory`"
